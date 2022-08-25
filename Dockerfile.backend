@@ -17,4 +17,8 @@ RUN pip3 install --no-cache --upgrade pip setuptools -i https://pypi.tuna.tsingh
 WORKDIR /app
 COPY ./backend/requirements.txt ./requirements.txt
 RUN pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+RUN apk add --update --no-cache clang clang-dev gcc lld musl-dev
+RUN apk add --update --no-cache build-base
+RUN apk add --update --no-cache llvm
+RUN apk add --update --no-cache clang-extra-tools
 COPY ./backend/ .
